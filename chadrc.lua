@@ -12,7 +12,7 @@ M.ui = {
 
 -- make sure you maintain the structure of `core/default_config.lua` here,
 M.plugins = {
-   install = my_plugins,
+   user = my_plugins,
    default_plugin_config_replace = {
       telescope = telescope_config,
       nvim_treesitter = treesitter_config,
