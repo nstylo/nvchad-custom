@@ -9,9 +9,6 @@ return {
          require("telescope").load_extension("fzf")
       end,
    },
-   ["williamboman/nvim-lsp-installer"] = {
-      disable = true,
-   },
    ["jose-elias-alvarez/null-ls.nvim"] = {
       after = "nvim-lspconfig",
       config = function()
@@ -27,6 +24,7 @@ return {
       run = "cd app && yarn install",
    },
    ["lark-parser/vim-lark-syntax"] = {
+      setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
       ft = { "lark" },
    }
 }
