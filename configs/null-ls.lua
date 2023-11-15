@@ -13,8 +13,11 @@ local sources = {
 
   -- JS
   b.formatting.prettier.with {
-    filetypes = { "javascript", "typescript", "vue", "javascriptreact", "typescriptreact", "solidity" },
+    filetypes = { "javascript", "typescript", "vue", "javascriptreact", "typescriptreact", "svelte" },
   },
+
+  -- Solidity
+  b.formatting.forge_fmt.with { filetypes = { "solidity" }, args = { "fmt", "$FILENAME" } },
 
   -- Lua
   b.formatting.stylua.with { filetypes = { "lua" } },

@@ -25,7 +25,8 @@ M.treesitter = {
     "vue",
     "query", -- treesitter query
     "sql",
-    "rust"
+    "rust",
+    "svelte",
   },
   indent = {
     enable = true,
@@ -60,6 +61,7 @@ M.mason = {
     "isort",
     "prettier",
     "prettierd",
+    "svelte-language-server",
   },
 }
 
@@ -114,7 +116,9 @@ M.telescope = {
         "--hidden",
         "--smart-case",
         "-g",
-        "!Music", "-g", "!Bulk",
+        "!Music",
+        "-g",
+        "!Bulk",
         "-g",
         "!node_modules",
         "-g",
@@ -125,7 +129,7 @@ M.telescope = {
 
   extensions_list = {
     "zoxide",
-  }
+  },
 }
 
 return M

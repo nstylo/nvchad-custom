@@ -18,6 +18,7 @@ local servers = {
   "solidity_ls_nomicfoundation",
   "graphql",
   "svelte",
+  "bashls",
 }
 
 for _, lsp in ipairs(servers) do
