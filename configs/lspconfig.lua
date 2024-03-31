@@ -29,7 +29,7 @@ for _, lsp in ipairs(servers) do
 end
 
 -- Open float diagnostics under cursor
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="line"})]]
+vim.cmd [[autocmd! CursorHold * lua vim.diagnostic.open_float(nil, {focus=false, scope="line"})]]
 
 vim.cmd [[ do User LspAttachBuffers ]]
 
