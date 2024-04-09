@@ -22,9 +22,10 @@ local plugins = {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "isort", "black" },
-        javascript = { { "prettierd", "prettier" } },
+        javascript = { { "biome", "prettier" } },
         typescript = { { "biome", "prettier" } },
-        typescriptreact = { "prettier" },
+        javascriptreact = { { "biome", "prettier" } },
+        typescriptreact = { { "biome", "prettier" } },
       },
       -- Set up format-on-save
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
