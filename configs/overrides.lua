@@ -34,6 +34,9 @@ M.treesitter = {
     --   "python"
     -- },
   },
+  highlight = {
+    disable = { "vimdoc" },
+  },
 }
 
 M.mason = {
