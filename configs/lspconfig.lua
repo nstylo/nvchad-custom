@@ -36,3 +36,12 @@ vim.cmd [[ do User LspAttachBuffers ]]
 vim.diagnostic.config {
   virtual_text = false,
 }
+
+-- Disable semantic token highlighting -> overriding treesitter (and is just worse)
+-- TODO: can't really override this for nvchad so just quickfix it like this
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+})
