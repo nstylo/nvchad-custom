@@ -126,4 +126,10 @@ local plugins = {
   -- }
 }
 
+-- TODO: this is just a temporary fix, because forge fmt does not work with conform.nvim
+vim.api.nvim_create_autocmd(
+  "BufWritePost",
+  { pattern = "*/**/*.sol", command = string.format("silent !forge fmt %s", vim.api.nvim_buf_get_name(0)) }
+)
+
 return plugins
