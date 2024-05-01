@@ -1,31 +1,37 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
-
-local lspconfig = require "lspconfig"
+local configs = require "plugins.configs.lspconfig"
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
-  "html",
-  "cssls",
-  "clangd",
-  "pyright",
-  "volar",
-  "tsserver",
-  "yamlls",
-  "dockerls",
-  "gopls",
-  "rust_analyzer",
-  "solidity_ls_nomicfoundation",
-  "graphql",
-  "svelte",
-  "bashls",
+  html = {},
+  cssls = {},
+  clangd = {},
+  pyright = {},
+  volar = {},
+  tsserver = {},
+  yamlls = {},
+  dockerls = {},
+  gopls = {},
+  rust_analyzer = {
+    settings = {
+      ["rust-analyzer"] = {
+        checkOnSave = {
+          command = "clippy",
+        },
+      },
+    },
+  },
+  solidity_ls = {},
+  graphql = {},
+  svelte = {},
+  bashls = {},
 }
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+for name, opts in pairs(servers) do
+  opts.on_init = configs.on_init
+  opts.on_attach = configs.on_attach
+  opts.capabilities = configs.capabilities
+
+  require("lspconfig")[name].setup(opts)
 end
 
 -- Open float diagnostics under cursor
