@@ -26,6 +26,7 @@ local plugins = {
         typescript = { { "biome", "prettier" } },
         javascriptreact = { { "biome", "prettier" } },
         typescriptreact = { { "biome", "prettier" } },
+        json = { "prettier" },
       },
       -- Set up format-on-save
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
@@ -109,6 +110,44 @@ local plugins = {
 
   {
     "gpanders/editorconfig.nvim",
+  },
+
+  {
+    "stevearc/aerial.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("aerial").setup {
+        layout = {
+          max_width = { 40, 0.2 },
+          min_width = 20,
+        },
+      }
+      vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+    end,
+    -- TODO: this will always load Aerial,
+    -- but we need a more dynamic way
+    lazy = false,
+  },
+
+  {
+    "nvimdev/lspsaga.nvim",
+    config = function()
+      require("lspsaga").setup {
+        lightbulb = {
+          enable = false,
+        },
+      }
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter", -- optional
+      "nvim-tree/nvim-web-devicons", -- optional
+    },
+    event = "LspAttach",
   },
 
   -- To make a plugin not be loaded

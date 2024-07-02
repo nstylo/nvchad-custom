@@ -14,3 +14,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.softtabstop = 4
   end,
 })
+
+-- force english
+vim.cmd "language en_US"

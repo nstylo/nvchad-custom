@@ -22,6 +22,10 @@ M.general = {
     ["<gl>"] = { ":Git blame<CR>" },
     ["<leader>m"] = { ":MarkdownPreview<CR>" },
     ["<M-o>"] = { ":ClangdSwitchSourceHeader<CR>" },
+
+    -- LSP stuff
+    ["<leader>l"] = { ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { 0 })<CR>" },
+    ["<leader>ra"] = { ":Lspsaga rename<CR>" },
   },
 }
 

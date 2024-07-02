@@ -7,7 +7,20 @@ local servers = {
   clangd = {},
   pyright = {},
   volar = {},
-  tsserver = {},
+  tsserver = {
+    init_options = {
+      preferences = {
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+        importModuleSpecifierPreference = "non-relative",
+      },
+    },
+  },
   yamlls = {},
   dockerls = {},
   gopls = {},
